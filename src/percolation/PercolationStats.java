@@ -14,7 +14,7 @@ import edu.princeton.cs.introcs.StdOut;;
  */
 public class PercolationStats {
 
-	private final int indepN;
+	private final int gridSizeN;
 	private final int indepT;
 	private final double[] thresholdCount;
 	
@@ -24,7 +24,7 @@ public class PercolationStats {
 		illegalArgumentCheck(N, T);
 		
 		thresholdCount = new double[T];
-		indepN = N;
+		gridSizeN = N;
 		indepT = T;
 		
 		// perform T independent computational experiments on an N-by-N grid
@@ -42,7 +42,7 @@ public class PercolationStats {
 		printSimulation(200, 100);
 		
 		printSimulation(200, 100);
-		
+			
 		printSimulation(2, 1000);
 		
 	}
@@ -50,20 +50,17 @@ public class PercolationStats {
 	
 	private void monteCarloSimulation() {
 		
-		//final int N = indepN;
-		//final int T = indepT;
-		final double totalSites = indepN * indepN;
-		
+		final double totalSites = gridSizeN * gridSizeN;
 		
 		for(int i = 0; i < indepT; i++) {
 			
 			double openSites = 0;
-			Percolation percolationGrid = new Percolation(indepN);
+			Percolation percolationGrid = new Percolation(gridSizeN);
 			
 			while(!percolationGrid.percolates()) {
 				
-				int randomRow = randomInt(indepN);
-				int randomCol = randomInt(indepN);
+				int randomRow = randomInt(gridSizeN);
+				int randomCol = randomInt(gridSizeN);
 				
 				if(!percolationGrid.isOpen(randomRow, randomCol)) {
 					

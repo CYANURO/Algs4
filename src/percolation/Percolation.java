@@ -65,7 +65,6 @@ public class Percolation {
 				unionFind.union(p, q);
 			}
 			
-			
 			newRow = rowI + 1;						// next row
 			
 			if(inBoundsAndOpen(newRow, newCol)) {
