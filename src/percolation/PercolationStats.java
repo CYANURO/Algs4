@@ -50,17 +50,19 @@ public class PercolationStats {
 	
 	private void monteCarloSimulation() {
 		
-		final double totalSites = gridSizeN * gridSizeN;
+		final int gridSize = gridSizeN;
+		final int computationT = indepT;
+		final double totalSites = gridSize * gridSize;
 		
-		for(int i = 0; i < indepT; i++) {
+		for(int i = 0; i < computationT; i++) {
 			
 			double openSites = 0;
-			Percolation percolationGrid = new Percolation(gridSizeN);
+			Percolation percolationGrid = new Percolation(gridSize);
 			
 			while(!percolationGrid.percolates()) {
 				
-				int randomRow = randomInt(gridSizeN);
-				int randomCol = randomInt(gridSizeN);
+				int randomRow = randomInt(gridSize);
+				int randomCol = randomInt(gridSize);
 				
 				if(!percolationGrid.isOpen(randomRow, randomCol)) {
 					
