@@ -133,7 +133,7 @@ public class PercolationStats {
 		PercolationStats statsTest = new PercolationStats(N, T);
 		
 		// Testing simulation
-		StdOut.println("PercolationStats of (" + N  + ", " + T + ")");
+		StdOut.printf("PercolationStats of (%d, %d)\n", N, T);
 		StdOut.println("mean()\t\t = " + statsTest.mean());
 		StdOut.println("stddev()\t = " + statsTest.stddev());
 		StdOut.println("confidenceLow()\t = " + statsTest.confidenceLow());
